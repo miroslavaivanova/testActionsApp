@@ -27,7 +27,7 @@ jobs:
     - run: ls -la
     - run: tns --version
     - run: tns run ios 1>out.txt 2>err.txt &
-    - run: grep -q 'Successfully sync' <(tail -f out.txt)
+    - run: grep -q 'Successfully synced application' <(tail -f out.txt)
     - run: sed -ie 's$taps$clicks$g' app/main-view-model.js
     - run: cat app/main-view-model.js
     - run: cat out.txt

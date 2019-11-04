@@ -28,3 +28,4 @@ jobs:
     - run: tns --version
     - run: tns run ios --justlaunch
     - run: sed -ie 's$taps$clicks$g' app/main-view-model.js
+    - run: cat app/main-view-model.js

@@ -14,11 +14,13 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: npm install -g nativescript
+    - run: npm install -g nativescript@rc
     - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py --user
     - run: pip install six --user
     - uses: actions/checkout@v1
+    - uses: npm i nativescript-dev-webpack@rc --save-dev
     - run: npm install
     - run: ls -la
     - run: ls -la ../
+    - run: tns --version
     - run: tns run ios --justlaunch

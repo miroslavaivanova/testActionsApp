@@ -18,7 +18,7 @@ jobs:
     - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py --user
     - run: pip install six --user
     - uses: actions/checkout@v1
-    - run: tns create appTest --template tns-template-hello-world@next
+    - run: tns create appTest --template tns-template-hello-world@rc
     - run: ls -la
     - run: cd appTest
     - run: ls -la

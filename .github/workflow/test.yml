@@ -1,0 +1,14 @@
+name: testActionsApp
+
+on:
+  push:
+
+
+jobs:
+  build:
+
+    steps:
+    - uses: actions/checkout@v1
+    - run: npm install -g nativescript
+    - run: npm i nativescript-dev-webpack@next --save-dev
+    - run: npm install

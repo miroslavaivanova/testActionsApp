@@ -18,3 +18,4 @@ jobs:
         - run: npm install -g nativescript
         - run: npm i nativescript-dev-webpack@next --save-dev
         - run: npm install
+        - run: tns --version

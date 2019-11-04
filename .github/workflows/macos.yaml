@@ -26,6 +26,6 @@ jobs:
     - run: npm install
     - run: ls -la
     - run: tns --version
-    - run: tns run ios --justlaunch
+    - run: tns run ios 1>out.txt 2>err.txt &
     - run: sed -ie 's$taps$clicks$g' app/main-view-model.js
     - run: cat app/main-view-model.js

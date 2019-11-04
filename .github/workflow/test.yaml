@@ -1,0 +1,21 @@
+name: testActionsApp
+
+on:
+  push:
+    branches:
+        - testActions
+
+jobs:
+  build:
+
+    runs-on: macOS-10.14
+
+    steps:
+        - uses: actions/setup-node@v1
+          with:
+            node-version: '12.x'
+        - uses: actions/checkout@v1
+        - run: npm install -g nativescript
+        - run: npm i nativescript-dev-webpack@next --save-dev
+        - run: npm install
+        - run: tns --version

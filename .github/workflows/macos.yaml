@@ -18,8 +18,12 @@ jobs:
     - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py --user
     - run: pip install six --user
     - uses: actions/checkout@v1
-    - run: tns create appTest --js
-    - run: cd appTest
+    - run: git clone git@github.com:NativeScript/nativescript-app-templates.git
+    - run: cd packages
+    - run: tns create appTest --template template-hello-world
+    - run: ls -la
+    - run: cd template-hello-world
+    - run: ls -la
     - run: npm i nativescript-dev-webpack@rc --save-dev
     - run: npm install
     - run: ls -la

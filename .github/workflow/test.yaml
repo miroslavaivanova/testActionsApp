@@ -3,7 +3,7 @@ name: testActionsApp
 on:
   push:
     branches:
-        - testActions
+        - action1
 
 jobs:
   build:

@@ -2,16 +2,14 @@ name: CI
 
 on:
   push:
-    branches:
-      - github_actions
 
 jobs:
   build:
 
-    runs-on: macOS-10.14
-    strategy:
-        matrix:
-          destination: ['platform=iOS Simulator,OS=13.2,name=iPhone 11']
+    runs-on: ubuntu-latest
+    # strategy:
+    #     matrix:
+    #       destination: ['platform=iOS Simulator,OS=13.2,name=iPhone 11']
 
     steps:
     - uses: actions/setup-node@v1

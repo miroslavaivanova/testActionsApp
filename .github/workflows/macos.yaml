@@ -8,10 +8,10 @@ on:
 jobs:
   build:
 
-    runs-on: macOS-10.14
-    strategy:
-        matrix:
-          destination: ['platform=iOS Simulator,OS=13.2,name=iPhone 11']
+    runs-on: ubuntu-latest
+    # strategy:
+    #     matrix:
+    #       destination: ['platform=iOS Simulator,OS=13.2,name=iPhone 11']
 
     steps:
     - uses: actions/setup-node@v1
@@ -29,7 +29,7 @@ jobs:
     - run: npm install
     - run: ls -la
     - run: tns --version
-    - run: tns run ios 1>out.txt 2>err.txt &
+    - run: tns run android 1>out.txt 2>err.txt &
     - run: grep -q 'Successfully synced application' <(tail -f out.txt)
     - run: sed -ie 's$taps$clicks$g' app/main-view-model.js
     - run: cat app/main-view-model.js

@@ -30,9 +30,4 @@ jobs:
     - run: npm install
     - run: ls -la
     - run: tns --version
-    - run: tns run android 1>out.txt 2>err.txt &
-    - run: grep -q 'Successfully synced application' <(tail -f out.txt)
-    - run: sed -ie 's$taps$clicks$g' app/main-view-model.js
-    - run: cat app/main-view-model.js
-    - run: cat out.txt
-    - run: grep R "Successfully sync" "out.txt"
+    - run: ./check.sh

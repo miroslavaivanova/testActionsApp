@@ -19,7 +19,8 @@ jobs:
         node-version: '12.x'
     - run: npm install -g nativescript@rc
     - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py --user
-    - run: pip install six --user
+    # - run: pip install six --user
+    - run: sudo apt install python-six  
     - uses: actions/checkout@v1
     - run: tns create appTest --template tns-template-hello-world@rc
     - run: ls -la

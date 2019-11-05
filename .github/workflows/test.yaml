@@ -5,6 +5,8 @@ on:
 
 jobs:
   build:
+    branches:
+        - github_actions
 
     runs-on: ubuntu-latest
     # strategy:

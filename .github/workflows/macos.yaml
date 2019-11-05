@@ -30,4 +30,4 @@ jobs:
     - run: npm install
     - run: ls -la
     - run: tns --version
-    - run: ./check.sh
+    - run: sudo ./check.sh

@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - github_actions
+
+jobs:
+  build:
+
+    runs-on: macOS-10.14
+    # strategy:
+    #     matrix:
+    #       destination: ['platform=iOS Simulator,OS=13.2,name=iPhone 11']
+
+    steps:
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: npm install -g nativescript@rc
+    - run: curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py --user
+    - run: pip install six --user
+    # - run: sudo apt install python-six  
+    - uses: actions/checkout@v1
+    - run: tns create appTest --template tns-template-hello-world@rc
+    - run: ls -la
+    - run: cd appTest
+    - run: ls -la
+    - run: npm i nativescript-dev-webpack@rc --save-dev
+    - run: npm install
+    - run: ls -la
+    - run: tns --version
+    - run: tns run android 1>out.txt 2>err.txt &
+    - run: grep -q 'Successfully synced application' <(tail -f out.txt)
+    - run: sed -ie 's$taps$clicks$g' app/main-view-model.js
+    - run: cat app/main-view-model.js
+    - run: cat out.txt
+    - run: grep R "Successfully sync" "out.txt"

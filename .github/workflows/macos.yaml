@@ -30,5 +30,4 @@ jobs:
     - run: npm install
     - run: ls -la
     - run: tns --version
-    - run: chmod +x check.sh
     - run: ./check.sh
